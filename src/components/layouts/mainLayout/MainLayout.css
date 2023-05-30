@@ -1,0 +1,21 @@
+.App {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: max-content auto;
+  grid-template-rows: 6em auto;
+  grid-template-areas:"sidebar contend"
+    "sidebar contend";
+}
+
+.Sidebar {
+  grid-area: sidebar;
+  height: 100%;
+  width: 3em;
+}
+
+.Contend {
+  box-sizing: border-box;
+  grid-area: contend;
+}

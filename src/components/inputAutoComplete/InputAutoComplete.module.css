@@ -1,0 +1,66 @@
+.ContainerForm {
+    display: flex;
+    flex-direction: row;
+}
+
+.ContainerForm form {
+    display: flex;
+    box-sizing: border-box;
+    height: max-content;
+}
+
+.InputBox {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.InputComponent {
+    height: 1.5em;
+    border-style: none;
+    border-bottom: 2px solid rgba(0, 26, 49, 0.897);
+    background-color: white;
+    width: 100%;
+    font-size: 1em;
+}
+
+.InputComponent:focus {
+    outline: none;
+    border-bottom: 2px solid red;
+}
+
+.SugestionBox {
+    height: max-content;
+    border-bottom: 2px solid rgba(0, 26, 49, 0.897);
+    width: 100%;
+}
+
+.SugestionBoxNone {
+    display: none;
+}
+
+.LabelVerify {
+    font-size: 1em;
+    font-weight: bold;
+    color: rgb(0, 177, 0);
+}
+
+.LabelWarning {
+    font-size: 1em;
+    font-weight: bold;
+    color: red;
+}
+
+.LabelNotVerify{
+    font-size: 1em;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+}
+
+.AutoComplete {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    text-shadow: 2px 1px 4px rgba(0,0,0,0.24);
+    color: rgb(97 97 97);
+}
