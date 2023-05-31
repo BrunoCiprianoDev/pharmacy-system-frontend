@@ -6,14 +6,14 @@ import styles from './InputAutoComplete.module.css'
 const InputAutoComplete = ({ attribute, url, setValue, attributeVisible, hookForm}) => {
 
   const [inputSearch, setInputSearch] = useState('');
-  const { data } = useFetch(`${url}`, `?q=${inputSearch}`);
+  const { data } = useFetch(`${url}`, `?query=${inputSearch}`);
   const currentItens = (data && data.slice(0, 3));
   const [visibilityAutoComplete, setVisibiliyAutoComplete] = useState(true)
 
   const handleInsert = (item) => {
     setInputSearch(item[attributeVisible])
     setVisibiliyAutoComplete(false)
-    hookForm ? setValue(attribute, item[attributeVisible]) : setValue(item.id)
+    hookForm ? setValue(attribute, item['id']) : setValue(item.id)
   }
   const handleOnChange = (event) => {
     hookForm ? setValue(attribute, '') : setValue("")
@@ -21,7 +21,7 @@ const InputAutoComplete = ({ attribute, url, setValue, attributeVisible, hookFor
     setVisibiliyAutoComplete(true)
   }
 
-  return (
+    return (
     <div className={styles.ContainerForm}>
       <div className={styles.InputBox}>
         <input

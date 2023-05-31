@@ -40,11 +40,9 @@ const ComponenteFormulario = ({
           [parametro.atributo]: ''
         }))
       ))
-      alert('Dados adicionado!');
     } else {
       console.log(e);
       httpConfig(e, 'PUT');
-      alert('Teste!');
     }
   }
 

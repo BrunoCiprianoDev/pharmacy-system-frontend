@@ -16,6 +16,6 @@ export const parametrosFuncionarios = [
     opcoes: [
       {id: 1, valor: 'GERENTE'},
       {id: 2, valor: 'VENDEDOR'}
-    ]
+    ]  
   }
 ]
