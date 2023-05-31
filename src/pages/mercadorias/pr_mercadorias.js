@@ -41,7 +41,7 @@ export const parametrosMercadorias = [
   { id: 12, atributo: 'minimumStock', rotulo: 'Estoque minimo', tipo: 'number' },
   { id: 13, atributo: 'maximumStock', rotulo: 'Estoque máximo', tipo: 'number' },
   { id: 17, atributo: 'fullPrice', rotulo: 'Preço', tipo: 'number' },
-  { id: 18, atributo: 'discountGroupId', rotulo: 'Grupo desconto', tipo: 'autoComplete', url: `${urlServer}/discounts`, atributoVisivel: 'name' },
+  { id: 18, atributo: 'discountGroupName', rotulo: 'Grupo desconto', tipo: 'autoComplete', url: `${urlServer}/discounts/search`, atributoVisivel: 'name', atributoSelect: 'discountGroupId' },
   { id: 19, atributo: 'comission', rotulo: 'Percentual de comissão', tipo: 'number' },
   { id: 20, atributo: 'pmc', rotulo: 'PMC', tipo: 'number' },
   { id: 21, atributo: 'description', rotulo: 'Descricao', tipo: 'textarea' }

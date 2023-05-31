@@ -108,7 +108,7 @@ const ComponenteFormulario = ({
 
                     case "autoComplete":
                       return <InputAutoComplete
-                        attribute={parametro.atributo}
+                        attribute={parametro.atributoSelect}
                         url={parametro.url}
                         attributeVisible={parametro.atributoVisivel}
                         register={register}

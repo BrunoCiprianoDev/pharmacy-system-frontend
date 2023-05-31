@@ -1,13 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
-import { useFetch } from '../../hooks/useFetch';
+import useFetchList from '../../hooks/useFetchList';
 import styles from './InputAutoComplete.module.css'
 
-const InputAutoComplete = ({ attribute, url, setValue, attributeVisible, hookForm}) => {
+const InputAutoComplete = ({ attribute, url, setValue, attributeVisible, hookForm }) => {
 
   const [inputSearch, setInputSearch] = useState('');
-  const { data } = useFetch(`${url}`, `?query=${inputSearch}`);
-  const currentItens = (data && data.slice(0, 3));
+  const { data, fetchData } = useFetchList();
   const [visibilityAutoComplete, setVisibiliyAutoComplete] = useState(true)
 
   const handleInsert = (item) => {
@@ -21,7 +20,11 @@ const InputAutoComplete = ({ attribute, url, setValue, attributeVisible, hookFor
     setVisibiliyAutoComplete(true)
   }
 
-    return (
+  useEffect(() => {
+    fetchData(`${url}?query=${inputSearch}&size=5`);
+  }, [inputSearch]);
+
+  return (
     <div className={styles.ContainerForm}>
       <div className={styles.InputBox}>
         <input
@@ -33,7 +36,7 @@ const InputAutoComplete = ({ attribute, url, setValue, attributeVisible, hookFor
         />
         <div className={visibilityAutoComplete && inputSearch !== '' ? styles.SugestionBox : styles.SugestionBoxNone}>
           {inputSearch !== '' && visibilityAutoComplete &&
-            currentItens.map((item) => (
+            data && data.map((item) => (
               <label
                 className={styles.AutoComplete}
                 onClick={() => handleInsert(item)}
