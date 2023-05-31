@@ -30,6 +30,16 @@ import ListaPerdas from './pages/perdas/ListaPerdas';
 import DetalhePerdas from './pages/perdas/DetalhePerdas';
 import FormularioPerdas from './pages/perdas/FormularioPerdas';
 
+import ListaDevolucoes from './pages/devolucoes/ListaDevolucoes';
+import DetalheDevolucoes from './pages/devolucoes/DetalheDevolucoes';
+import FormularioDevolucoes from './pages/devolucoes/FormularioDevolucoes';
+
+import ListaClientes from './pages/clientes/ListaClientes';
+import DetalheClientes from './pages/clientes/DetalheClientes';
+import FormularioClientes from './pages/clientes/FormularioClientes';
+
+import Pagina404 from './pages/pagina404/Pagina404';
+
 
 function App() {
 
@@ -65,6 +75,15 @@ function App() {
             <Route path='/perdas/:id' element={<MainLayout children={<DetalhePerdas/>}/>}/>
             <Route path='/perdas/form/:id' element={<MainLayout children={<FormularioPerdas/>}/>}/>
 
+            <Route path='/devolucoes/' element={<MainLayout children={<ListaDevolucoes/>}/>}/>
+            <Route path='/devolucoes/:id' element={<MainLayout children={<DetalheDevolucoes/>}/>}/>
+            <Route path='/devolucoes/form/:id' element={<MainLayout children={<FormularioDevolucoes/>}/>}/>
+
+            <Route path='/clientes/' element={<MainLayout children={<ListaClientes/>}/>}/>
+            <Route path='/clientes/:id' element={<MainLayout children={<DetalheClientes/>}/>}/>
+            <Route path='/clientes/form/:id' element={<MainLayout children={<FormularioClientes/>}/>}/>
+
+            <Route path='*' element={<Pagina404/>}/>
          </Routes>
       </BrowserRouter>
    )
