@@ -46,6 +46,4 @@ export const parametrosMercadorias = [
   { id: 20, atributo: 'pmc', rotulo: 'PMC', tipo: 'number' },
   { id: 21, atributo: 'description', rotulo: 'Descricao', tipo: 'textarea' }
 ]
-
-// { id: 2, atributo: 'fornecedoreId', rotulo: 'Fornecedor', tipo: 'autoComplete', url: urlServer + "/fornecedores/", atributoVisivel: 'nome' },
     

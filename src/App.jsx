@@ -14,6 +14,10 @@ import ListaMercadorias from './pages/mercadorias/ListaMercadorias';
 import DetalheMercadorias from './pages/mercadorias/DetalheMercadorias';
 import FormularioMercadorias from './pages/mercadorias/FormularioMercadorias';
 
+import ListaFornecedores from './pages/fornecedores/ListaFornecedores';
+import DetalheFornecedores from './pages/fornecedores/DetalheFornecedores';
+import FormularioFornecedores from './pages/fornecedores/FormularioFornecedores';
+
 function App() {
 
    return (
@@ -31,6 +35,10 @@ function App() {
             <Route path='/mercadorias/' element={<MainLayout children={<ListaMercadorias/>}/>}/>
             <Route path='/mercadorias/:id' element={<MainLayout children={<DetalheMercadorias/>}/>}/>
             <Route path='/mercadorias/form/:id' element={<MainLayout children={<FormularioMercadorias/>}/>}/>
+
+            <Route path='/fornecedores/' element={<MainLayout children={<ListaFornecedores/>}/>}/>
+            <Route path='/fornecedores/:id' element={<MainLayout children={<DetalheFornecedores/>}/>}/>
+            <Route path='/fornecedores/form/:id' element={<MainLayout children={<FormularioFornecedores/>}/>}/>
          </Routes>
       </BrowserRouter>
    )
