@@ -9,12 +9,12 @@ export const ListaFornecedores = () => {
 
   return (
     <ComponenteLista
-    titulo={'Fornecedores'}
-    urlFetch={`${urlServer}/suppliers`}
-    parametros={parametrosFornecedores.slice(0, 2).concat(parametrosFornecedores.slice(10, 12))}
-    sessao={"fornecedores"}
-    opcaoEditar={true}
-  />
+      titulo={'Fornecedores'}
+      urlFetch={`${urlServer}/suppliers`}
+      parametros={parametrosFornecedores.slice(0, 2).concat(parametrosFornecedores.slice(10, 12))}
+      sessao={"fornecedores"}
+      opcaoEditar={true}
+    />
   )
 }
 

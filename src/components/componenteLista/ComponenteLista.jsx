@@ -7,13 +7,13 @@ import Header from '../header/Header';
 import { useNavigate } from 'react-router-dom';
 import { useFetch } from '../../hooks/useFetch';
 
-const ComponenteLista = ({sessao, titulo, urlFetch, parametros, opcaoEditar }) => {
+const ComponenteLista = ({sessao, titulo, urlFetch, parametros, opcaoEditar, manualUrl }) => {
 
   const navigate = useNavigate();
 
   const [query, setQuery] = useState('');
 
-  const {data, httpConfig, loading, error} = useFetch(`${urlFetch}`, `/search?query=${query}`);
+  const {data, httpConfig, loading, error} = useFetch( `${urlFetch}`, manualUrl ? ` ` : `/search?query=${query}`);
 
   const handleEdit = (id) => {
     navigate(`/${sessao}/${id}`);
@@ -26,7 +26,7 @@ const ComponenteLista = ({sessao, titulo, urlFetch, parametros, opcaoEditar }) =
   return (
     <>
       <div className='Header'>
-        <Header query={query} setQuery={setQuery} sessao={sessao} />
+        {!manualUrl && <Header query={query} setQuery={setQuery} sessao={sessao} />}
       </div>
       <div className={styles.MainContainer}>
         {loading && <Loading />}

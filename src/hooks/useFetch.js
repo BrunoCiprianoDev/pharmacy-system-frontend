@@ -44,7 +44,7 @@ export const useFetch = (url, filter) => {
     try {
       setLoading(true)
       const res = await fetch(`${url}${filter}`);
-      //console.log(`URL: ${url}${filter}`);
+      console.log(`URL: ${url}${filter}`);
       const json = await res.json();
       setData(json);
       setMethod(null);

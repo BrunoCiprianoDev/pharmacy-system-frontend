@@ -18,6 +18,14 @@ import ListaFornecedores from './pages/fornecedores/ListaFornecedores';
 import DetalheFornecedores from './pages/fornecedores/DetalheFornecedores';
 import FormularioFornecedores from './pages/fornecedores/FormularioFornecedores';
 
+import ListaLotes from './pages/lotes/ListaLotes';
+import DetalheLotes from './pages/lotes/DetalheLotes';
+import FormularioLotes from './pages/lotes/FormularioLotes';
+
+import ListaCompras from './pages/compras/ListaCompras';
+import DetalheCompras from './pages/compras/detalheCompras/DetalheCompras';
+import FormularioCompras from './pages/compras/FormularioCompras';
+
 function App() {
 
    return (
@@ -39,6 +47,15 @@ function App() {
             <Route path='/fornecedores/' element={<MainLayout children={<ListaFornecedores/>}/>}/>
             <Route path='/fornecedores/:id' element={<MainLayout children={<DetalheFornecedores/>}/>}/>
             <Route path='/fornecedores/form/:id' element={<MainLayout children={<FormularioFornecedores/>}/>}/>
+
+            <Route path='/compras/' element={<MainLayout children={<ListaCompras/>}/>}/>
+            <Route path='/compras/:id' element={<MainLayout children={<DetalheCompras/>}/>}/>
+            <Route path='/compras/form/:id' element={<MainLayout children={<FormularioCompras/>}/>}/> 
+
+            <Route path='/lotes/' element={<MainLayout children={<ListaLotes/>}/>}/>
+            <Route path='/lotes/:id' element={<MainLayout children={<DetalheLotes/>}/>}/>
+            <Route path='/lotes/form/:id' element={<MainLayout children={<FormularioLotes/>}/>}/>
+
          </Routes>
       </BrowserRouter>
    )

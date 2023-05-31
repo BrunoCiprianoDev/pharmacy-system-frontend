@@ -18,7 +18,7 @@ export const parametrosSideBar = [
   { id: 4, name: 'Mercadorias', to: '/mercadorias/', value: 'MERCADORIAS', icon: iconeMercadorias },
   { id: 5, name: 'Fornecedores', to: '/fornecedores/', value: 'FORNECEDORES', icon: iconeFornecedores },
   { id: 6, name: 'Compras', to: "/compras/", value: 'COMPRAS', icon: iconeCompras },
-  { id: 7, name: 'Estoque', to: '/estoque/', value: 'ESTOQUE', icon: iconeEstoque },
+  { id: 7, name: 'Estoque', to: '/lotes/', value: 'ESTOQUE', icon: iconeEstoque },
   { id: 8, name: 'Perdas', to: '/perdas/', value: 'PERDAS', icon: iconePerdas },
   { id: 9, name: 'Vendas', to: '/vendas/', value: 'VENDAS', icon: iconeVendas },
   { id: 10, name: 'Devoluções', to: '/devolucoes/', value: 'DEVOLUCOES', icon: iconeDevolucao },
