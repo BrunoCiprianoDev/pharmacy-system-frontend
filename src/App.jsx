@@ -26,6 +26,11 @@ import ListaCompras from './pages/compras/ListaCompras';
 import DetalheCompras from './pages/compras/detalheCompras/DetalheCompras';
 import FormularioCompras from './pages/compras/FormularioCompras';
 
+import ListaPerdas from './pages/perdas/ListaPerdas';
+import DetalhePerdas from './pages/perdas/DetalhePerdas';
+import FormularioPerdas from './pages/perdas/FormularioPerdas';
+
+
 function App() {
 
    return (
@@ -55,6 +60,10 @@ function App() {
             <Route path='/lotes/' element={<MainLayout children={<ListaLotes/>}/>}/>
             <Route path='/lotes/:id' element={<MainLayout children={<DetalheLotes/>}/>}/>
             <Route path='/lotes/form/:id' element={<MainLayout children={<FormularioLotes/>}/>}/>
+
+            <Route path='/perdas/' element={<MainLayout children={<ListaPerdas/>}/>}/>
+            <Route path='/perdas/:id' element={<MainLayout children={<DetalhePerdas/>}/>}/>
+            <Route path='/perdas/form/:id' element={<MainLayout children={<FormularioPerdas/>}/>}/>
 
          </Routes>
       </BrowserRouter>
