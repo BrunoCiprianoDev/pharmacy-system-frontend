@@ -20,7 +20,7 @@ const ComponenteFormulario = ({
 }) => {
 
   const navigate = useNavigate();
-  const { data, httpConfig, loading, error } = useFetch(`${urlFetch}`, idFetch !== 'adicionar' ? `${idFetch}` : ``);
+  const { data, httpConfig, loading, error, responseMessage } = useFetch(`${urlFetch}`, idFetch !== 'adicionar' ? `${idFetch}` : ``);
   const { register, handleSubmit, reset, setValue } = useForm();
 
   useEffect(() => {
@@ -54,7 +54,7 @@ const ComponenteFormulario = ({
   return (
     <div className={styles.MainContainer}>
       {loading && <Loading />}
-      {error && <AlertError>Falha no carregamento!</AlertError>}
+      {responseMessage && <AlertError>{responseMessage}</AlertError>}
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={styles['FormContainer']}>
           {parametros.map((parametro) => (

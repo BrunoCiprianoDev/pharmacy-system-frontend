@@ -30,7 +30,7 @@ const ComponenteLista = ({sessao, titulo, urlFetch, parametros, opcaoEditar, man
       </div>
       <div className={styles.MainContainer}>
         {loading && <Loading />}
-        {error && <AlertError>Falha no carregamento!</AlertError>}
+        {error && <AlertError>{error.message}</AlertError>}
         <div className={styles.Title}>
           {titulo && <div>
             <h2>{titulo}</h2>
@@ -46,7 +46,7 @@ const ComponenteLista = ({sessao, titulo, urlFetch, parametros, opcaoEditar, man
             </tr>
           </thead>
           <tbody>
-            {data && data.map((item) => (
+            {!error && data && data.map((item) => (
               <tr className={styles.ListComponent} key={item.id}>
                 {parametros.map((parametro) => (
                   <td

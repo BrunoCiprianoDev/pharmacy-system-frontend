@@ -7,6 +7,7 @@ export const useFetch = (url, filter) => {
   const [callFetch, setCallFetch] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [responseMessage, setResponseMessage] = useState('');
   const [itemId, setItemId] = useState(null);
 
   const httpConfig = (data, method) => {
@@ -77,7 +78,13 @@ export const useFetch = (url, filter) => {
         let fetchOptions = [`${url}${filter}`, config];
         const res = await fetch(...fetchOptions);
         const json = await res.json();
-        console.log(`Verificação:${url}${filter}`);
+        if(res.ok){
+          setResponseMessage('');
+        }
+        if(!res.ok){
+          console.log(json);
+          setResponseMessage(res.status+'Erro: ' + JSON.stringify(json));
+        }
         setCallFetch(json);
       }
     };
@@ -85,5 +92,5 @@ export const useFetch = (url, filter) => {
     fetchData();
   }, [config, itemId, method, url, filter]);
 
-  return { data, httpConfig, fetchData, loading, error};
+  return { data, httpConfig, fetchData, loading, responseMessage, error};
 };
