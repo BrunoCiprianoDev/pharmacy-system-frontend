@@ -51,7 +51,6 @@ export const useFetch = (url, filter) => {
       setMethod(null);
       setError(null);
     } catch (error) {
-      console.log(error.message);
       setError("Houve um erro ao carregar os dados!");
     }
     setLoading(false);
@@ -68,6 +67,13 @@ export const useFetch = (url, filter) => {
         let fetchOptions = [url, config];
         const res = await fetch(...fetchOptions);
         const json = await res.json();
+        if(res.ok){
+          setResponseMessage('');
+        }
+        if(!res.ok){
+          console.log(json);
+          setResponseMessage(res.status+'Erro: ' + JSON.stringify(json));
+        }
         setCallFetch(json);
       } else if (method === "DELETE") {
         const deleteUrl = `${url}/${itemId}`;

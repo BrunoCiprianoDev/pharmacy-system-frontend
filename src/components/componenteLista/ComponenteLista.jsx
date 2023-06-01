@@ -6,14 +6,17 @@ import BotoesLista from '../botoesLista/BotoesLista'
 import Header from '../header/Header';
 import { useNavigate } from 'react-router-dom';
 import { useFetch } from '../../hooks/useFetch';
+import ComponentePaginacao from '../componentePaginacao/ComponentePaginacao';
 
 const ComponenteLista = ({sessao, titulo, urlFetch, parametros, opcaoEditar, manualUrl }) => {
 
   const navigate = useNavigate();
 
   const [query, setQuery] = useState('');
+  const [page, setPage] = useState(0);
 
-  const {data, httpConfig, loading, error} = useFetch( `${urlFetch}`, manualUrl ? ` ` : `/search?query=${query}`);
+  const {data, httpConfig, loading, error} = useFetch( `${urlFetch}`, manualUrl ? ` ` : `/search?query=${query}&page=${page}`);
+
 
   const handleEdit = (id) => {
     navigate(`/${sessao}/${id}`);
@@ -30,7 +33,7 @@ const ComponenteLista = ({sessao, titulo, urlFetch, parametros, opcaoEditar, man
       </div>
       <div className={styles.MainContainer}>
         {loading && <Loading />}
-        {error && <AlertError>{error.message}</AlertError>}
+        {error && <AlertError>{error}</AlertError>}
         <div className={styles.Title}>
           {titulo && <div>
             <h2>{titulo}</h2>
@@ -64,6 +67,7 @@ const ComponenteLista = ({sessao, titulo, urlFetch, parametros, opcaoEditar, man
           </tbody>
         </table>
         <div className={styles.PaginationArea}>
+          <ComponentePaginacao page={page} setPage={setPage}/>
         </div>
       </div>
     </>
