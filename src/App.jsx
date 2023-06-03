@@ -1,6 +1,7 @@
 import './App.css'
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import MainLayout from './components/layouts/mainLayout/MainLayout';
 import ListaFuncionarios from './pages/funcionarios/ListaFuncionarios';
 import DetalheFuncionarios from './pages/funcionarios/DetalheFuncionarios';
@@ -39,12 +40,13 @@ import DetalheClientes from './pages/clientes/DetalheClientes';
 import FormularioClientes from './pages/clientes/FormularioClientes';
 
 import Pagina404 from './pages/pagina404/Pagina404';
+import NovaVenda from './pages/vendas/novaVenda/NovaVenda';
 
 
 function App() {
 
    return (
-      <BrowserRouter basename='/pharmacy-system-frontend'>
+      <BrowserRouter basename='/pharmacy-system-frontend/'>
          <Routes>
             <Route path='/' element={<MainLayout />} />
             <Route path='/funcionarios/' element={<MainLayout children={<ListaFuncionarios />} />} />
@@ -82,6 +84,8 @@ function App() {
             <Route path='/clientes/' element={<MainLayout children={<ListaClientes/>}/>}/>
             <Route path='/clientes/:id' element={<MainLayout children={<DetalheClientes/>}/>}/>
             <Route path='/clientes/form/:id' element={<MainLayout children={<FormularioClientes/>}/>}/>
+
+            <Route path='/novaVenda/' element={<MainLayout children={<NovaVenda/>}/>}/>
 
             <Route path='*' element={<Pagina404/>}/>
          </Routes>
