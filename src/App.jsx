@@ -41,6 +41,8 @@ import FormularioClientes from './pages/clientes/FormularioClientes';
 
 import Pagina404 from './pages/pagina404/Pagina404';
 import NovaVenda from './pages/vendas/novaVenda/NovaVenda';
+import ListaVenda from './pages/vendas/ListaVenda';
+import DetalheVenda from './pages/vendas/detalheVenda/DetalheVenda';
 
 
 function App() {
@@ -86,6 +88,8 @@ function App() {
             <Route path='/clientes/form/:id' element={<MainLayout children={<FormularioClientes/>}/>}/>
 
             <Route path='/novaVenda/' element={<MainLayout children={<NovaVenda/>}/>}/>
+            <Route path='/vendas/' element={<MainLayout children={<ListaVenda/>}/>}/>
+            <Route path='/vendas/:id' element={<MainLayout children={<DetalheVenda/>}/>}/>
 
             <Route path='*' element={<Pagina404/>}/>
          </Routes>
