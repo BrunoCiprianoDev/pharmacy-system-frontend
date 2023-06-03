@@ -34,12 +34,12 @@ const ComponenteFormulario = ({
   const onSubmit = (e) => {
     if (idFetch === 'adicionar') {
       httpConfig(e, "POST");
-      parametros.map((parametro) => (
+      /*parametros.map((parametro) => (
         reset(formValues => ({
           ...formValues,
           [parametro.atributo]: ''
         }))
-      ))
+      ))*/
     } else {
       console.log(e);
       httpConfig(e, 'PUT');

@@ -7,13 +7,13 @@ export const parametrosMercadorias = [
     id: 3, atributo: 'department', rotulo: 'Departamento', tipo: 'select',
     opcoes: [
       { id: 1, valor: 'MEDICAMENTO' },
-      { id: 2, valor: 'SUPLEMENTOS' },
-      { id: 3, valor: 'DERMATOLOGICO' },
+      { id: 2, valor: 'SUPLEMENTO' },
+      { id: 3, valor: 'DERMATOLOGIA' },
       { id: 4, valor: 'HIGIENE' },
       { id: 5, valor: 'GERIATRIA' },
       { id: 6, valor: 'INFANTIL' },
       { id: 7, valor: 'BELEZA' },
-      { id: 8, valor: 'OUTROS' }
+      { id: 8, valor: 'OUTRO' }
     ]
   },
   {

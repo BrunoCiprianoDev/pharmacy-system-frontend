@@ -4,6 +4,7 @@ import styles from './NovaVenda.module.css'
 import InputAutoComplete from '../../../components/inputAutoComplete/InputAutoComplete'
 import { urlServer } from '../../../serverConfig'
 import ListaPesquisa from '../../../components/listaPesquisa/ListaPesquisa'
+import EventList from '../../../components/eventList/EventList'
 
 const NovaVenda = () => {
 
@@ -37,7 +38,7 @@ const NovaVenda = () => {
         </div>
       </div>
       <div className={styles.RightArea}>
-
+        <EventList/>
       </div>
     </div>
   )
