@@ -10,6 +10,7 @@ const NovaVenda = () => {
 
   const [funcionario, setFuncionario] = new useState('');
   const [cliente, setcliente] = new useState('');
+  const [list, setList] = new useState([]);
 
   return (
     <div className={styles.MainContainer}>
@@ -34,11 +35,11 @@ const NovaVenda = () => {
           />
         </div>
         <div className={styles['lista-pesquisa-area']}>
-          <ListaPesquisa />
+          <ListaPesquisa list={list} setList={setList}/>
         </div>
       </div>
       <div className={styles.RightArea}>
-        <EventList/>
+        <EventList list={list} setList={setList}/>
       </div>
     </div>
   )

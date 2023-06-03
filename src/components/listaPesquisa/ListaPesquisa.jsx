@@ -8,9 +8,25 @@ import { useFetch } from '../../hooks/useFetch'
 const ListaPesquisa = ({ list, setList, vendaId }) => {
 
   const [inputSearch, setInputSearch] = useState('');
-  const { data, loading, error } = useFetch(`${urlServer}/lots/search`, `?query=${inputSearch}`);
+  const { data, httpConfig, loading, error } = useFetch(`${urlServer}/lots/search`, `?query=${inputSearch}`);
 
-  
+  const adicionarNaLista = (item) => {
+    const exists = list.find((obj) => obj.lotId === item.id);
+    if (exists) {
+      return;
+    }
+
+    setList([...list, {
+      lotId: item.id,
+      number: item.number,
+      name: item.merchandise.name,
+      maxUnits: item.units,
+      units: 1,
+      fullPrice: item.merchandise.fullPrice,
+      sellPrice: item.merchandise.fullPrice
+    }])
+  }
+
   return (
     <div className={styles.SearchList}>
       <form >
@@ -24,6 +40,7 @@ const ListaPesquisa = ({ list, setList, vendaId }) => {
       <table>
         <thead>
           <tr className={styles.HeaderList}>
+            <th>Lote</th>
             <th>Nome</th>
             <th>Unidades</th>
             <th>Preço c/desconto</th>
@@ -31,10 +48,13 @@ const ListaPesquisa = ({ list, setList, vendaId }) => {
         </thead>
         <tbody>
           {error && <AlertError>Erro no carregamento!</AlertError>}
-          {data && data.map((item) => (
-            <tr key={item.id}
+          {data && data.map((item, index) => (
+            <tr
+              key={index}
               className={styles.ElementList}
+              onClick={() => adicionarNaLista(item)}
             >
+              <td>{item.number}</td>
               <td>{item.merchandise.name}</td>
               <td>{item.units}</td>
               <td>R${item.merchandise.fullPrice}</td>
