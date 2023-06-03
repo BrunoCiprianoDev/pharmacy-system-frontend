@@ -5,20 +5,35 @@ import InputAutoComplete from '../../../components/inputAutoComplete/InputAutoCo
 import { urlServer } from '../../../serverConfig'
 import ListaPesquisa from '../../../components/listaPesquisa/ListaPesquisa'
 import EventList from '../../../components/eventList/EventList'
+import { useFetch } from '../../../hooks/useFetch'
 
+import Loading from '../../../components/loading/Loading'
+import AlertError from '../../../components/alertContainer/alertError/AlertError'
 const NovaVenda = () => {
 
+  const {httpConfig, responseMessage, loading, error} = useFetch( `${urlServer}/sales`, ``);
   const [funcionario, setFuncionario] = new useState('');
-  const [cliente, setcliente] = new useState('');
+  const [cliente, setCliente] = new useState('');
   const [list, setList] = new useState([]);
 
   const registrarVenda = () => {
-    console.log('Funcionário: ' + funcionario);
-    console.log('Clientes : ' + cliente);
+    const vendaObj = {
+      employeeId: funcionario,
+      clientId: cliente,
+      saleItems: list.map(item => ({
+        units: item.units,
+        sellPrice: item.sellPrice,
+        lotId: item.lotId
+      }))
+    };
+
+    httpConfig(vendaObj, "POST");
   }
 
   return (
+    <>
     <div className={styles.MainContainer}>
+    {loading && <Loading />}
       <div className={styles.LeftArea}>
         <h2>Informações da venda:</h2>
         <div>
@@ -35,7 +50,7 @@ const NovaVenda = () => {
           <InputAutoComplete
             attribute={'id'}
             url={`${urlServer}/clients`}
-            setValue={setFuncionario}
+            setValue={setCliente}
             attributeVisible={'name'}
           />
         </div>
@@ -44,13 +59,15 @@ const NovaVenda = () => {
         </div>
       </div>
       <div className={styles.RightArea}>
+      {responseMessage && <AlertError>{responseMessage}</AlertError>}
         <button
           className={styles.ButtonConcluir}
-          onClick={() => navigate(`/compras/`)}>Concluir Venda
+          onClick={() => registrarVenda()}>Concluir Venda
         </button>
         <EventList list={list} setList={setList} />
       </div>
     </div>
+    </>
   )
 }
 
