@@ -46,7 +46,7 @@ import NovaVenda from './pages/vendas/novaVenda/NovaVenda';
 function App() {
 
    return (
-      <BrowserRouter basename='/pharmacy-system-frontend/'>
+      <BrowserRouter basename='/pharmacy-system-frontend'>
          <Routes>
             <Route path='/' element={<MainLayout />} />
             <Route path='/funcionarios/' element={<MainLayout children={<ListaFuncionarios />} />} />

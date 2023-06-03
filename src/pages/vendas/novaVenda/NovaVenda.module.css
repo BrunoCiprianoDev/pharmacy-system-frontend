@@ -122,3 +122,12 @@
     text-align: center;
     word-break: break-all;
 }
+
+.lista-pesquisa-area{
+    display: flex;
+    justify-content: center;
+    margin-top: 3em;
+    border: 1px dashed red;
+    height: 50%;
+    width: 100%;
+}
