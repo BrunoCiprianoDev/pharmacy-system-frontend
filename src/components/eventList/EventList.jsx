@@ -6,26 +6,37 @@ const EventList = ({ list, setList }) => {
   const tirarUnidades = (item) => {
     const updatedList = list.map((listItem) => {
       if (listItem.lotId === item.lotId) {
+        const updatedUnits = Math.max(0, listItem.units - 1);
+        const updatedSellPrice = updatedUnits * listItem.fullPrice;
+
+        if (updatedUnits === 0) {
+          return null; // Retorna null para remover o item da lista
+        }
+
         return {
           ...listItem,
-          units: Math.max(0, listItem.units - 1)
+          units: updatedUnits,
+          sellPrice: updatedSellPrice
         };
       }
       return listItem;
     });
 
-    setList(updatedList);
+    const filteredList = updatedList.filter((item) => item !== null); // Filtra os elementos nulos para remover da lista
+
+    setList(filteredList);
   };
 
   const adicionarUnidades = (item) => {
-    if(item.maxUnits === item.units) {
+    if (item.maxUnits === item.units) {
       return;
     }
     const updatedList = list.map((listItem) => {
       if (listItem.lotId === item.lotId) {
         return {
           ...listItem,
-          units: listItem.units + 1
+          units: listItem.units + 1,
+          sellPrice: (listItem.units + 1) * listItem.fullPrice
         };
       }
       return listItem;

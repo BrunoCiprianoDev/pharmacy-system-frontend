@@ -13,6 +13,7 @@ const ListaPesquisa = ({ list, setList, vendaId }) => {
   const adicionarNaLista = (item) => {
     const exists = list.find((obj) => obj.lotId === item.id);
     if (exists) {
+      alert('Esse lotes já foi inserido.');
       return;
     }
 

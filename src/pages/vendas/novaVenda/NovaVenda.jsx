@@ -12,6 +12,11 @@ const NovaVenda = () => {
   const [cliente, setcliente] = new useState('');
   const [list, setList] = new useState([]);
 
+  const registrarVenda = () => {
+    console.log('Funcionário: ' + funcionario);
+    console.log('Clientes : ' + cliente);
+  }
+
   return (
     <div className={styles.MainContainer}>
       <div className={styles.LeftArea}>
@@ -35,11 +40,15 @@ const NovaVenda = () => {
           />
         </div>
         <div className={styles['lista-pesquisa-area']}>
-          <ListaPesquisa list={list} setList={setList}/>
+          <ListaPesquisa list={list} setList={setList} />
         </div>
       </div>
       <div className={styles.RightArea}>
-        <EventList list={list} setList={setList}/>
+        <button
+          className={styles.ButtonConcluir}
+          onClick={() => navigate(`/compras/`)}>Concluir Venda
+        </button>
+        <EventList list={list} setList={setList} />
       </div>
     </div>
   )
