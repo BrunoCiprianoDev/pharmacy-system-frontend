@@ -9,9 +9,7 @@ import { parametroItemsVenda, parametrosVendas } from '../pr_vendas';
 import { urlServer } from '../../../serverConfig';
 import ComponenteLista from '../../../components/componenteLista/ComponenteLista';
 
-import { parametrosLotes } from '../../lotes/pr_lotes';
-import useFetchList from '../../../hooks/useFetchList';
-import { useEffect } from 'react';
+import { useFetch } from '../../../hooks/useFetch';
 
 const DetalheVenda = () => {
 
@@ -19,16 +17,12 @@ const DetalheVenda = () => {
 
   const navigate = useNavigate();
 
-  const { data, fetchData, isLoading, error } = useFetchList();
-
-  useEffect(() => {
-    fetchData(`${urlServer}/sales/${id}`); // eslint-disable-next-line
-  }, [])
+  const {data, loading, error} = useFetch(`${urlServer}/sales/${id}`, ``);
 
 
   return (
     <div className={styles.MainContainer}>
-      {isLoading && <Loading />}
+      {loading && <Loading />}
       {error && <AlertError>{error}</AlertError>}
       {<div className={styles.LeftArea}>
         <h2>Detalhes da venda</h2>

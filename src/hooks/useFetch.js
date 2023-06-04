@@ -43,8 +43,14 @@ export const useFetch = (url, filter) => {
 
   const fetchData = async () => {
     try {
-      setLoading(true)
-      const res = await fetch(`${url}${filter}`);
+      setLoading(true);
+      const token = JSON.parse(sessionStorage.getItem("credencial")).token;
+      console.log(token)
+      const res = await fetch(`${url}${filter}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       console.log(`URL: ${url}${filter}`);
       const json = await res.json();
       setData(json);
@@ -55,39 +61,44 @@ export const useFetch = (url, filter) => {
     }
     setLoading(false);
   };
-
-  useEffect(() => {      
+  
+  useEffect(() => {
     fetchData();
   }, [url, callFetch, filter]);
 
   useEffect(() => {
-  
-    const httpRequest = async () => {  
+    const httpRequest = async () => {
       if (method === "POST") {
         let fetchOptions = [url, config];
+        const token = JSON.parse(sessionStorage.getItem("credencial")).token;
+        fetchOptions[1].headers.Authorization = `Bearer ${token}`;
         const res = await fetch(...fetchOptions);
         const json = await res.json();
-        if(res.ok){
+        if (res.ok) {
           setResponseMessage('');
         }
-        if(!res.ok){
+        if (!res.ok) {
           console.log(json);
           setResponseMessage(res.status+'Erro: ' + JSON.stringify(json));
         }
         setCallFetch(json);
       } else if (method === "DELETE") {
         const deleteUrl = `${url}/${itemId}`;
+        const token = JSON.parse(sessionStorage.getItem("credencial")).token;
+        config.headers.Authorization = `Bearer ${token}`;
         const res = await fetch(deleteUrl, config);
         const json = await res.json();
         setCallFetch(json);
       } else if (method === "PUT") {
         let fetchOptions = [`${url}${filter}`, config];
+        const token = JSON.parse(sessionStorage.getItem("credencial")).token;
+        fetchOptions[1].headers.Authorization = `Bearer ${token}`;
         const res = await fetch(...fetchOptions);
         const json = await res.json();
-        if(res.ok){
+        if (res.ok) {
           setResponseMessage('');
         }
-        if(!res.ok){
+        if (!res.ok) {
           console.log(json);
           setResponseMessage(res.status+'Erro: ' + JSON.stringify(json));
         }

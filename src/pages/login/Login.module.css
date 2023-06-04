@@ -1,0 +1,90 @@
+.home-container {
+    background: rgb(0, 27, 50);
+    background: linear-gradient(355deg, rgba(0, 27, 50, 1) 42%, rgba(167, 212, 255, 1) 43%, rgba(63, 157, 247, 1) 86%);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Lilita One', cursive;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.home-container h1 {
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.75);
+    font-size: 3em;
+    color: white
+}
+
+.home-login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.3em;
+    box-shadow: 2px 1px 12px 0px rgba(0, 0, 0, 0.35);
+    padding: 3em;
+    background-color: rgb(240, 239, 239);
+}
+
+.form-login-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-login-container label {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+}
+
+.form-login-container input {
+    background: none;
+    cursor: pointer;
+    border-radius: 4px;
+    height: 2em;
+    width: 17em;
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.35);
+    border-style: none;
+}
+
+.form-login-container input:focus {
+    outline: none;
+}
+
+.link-register{
+    cursor: pointer;
+    margin-top: 1.2em;
+}
+
+
+.button-container {
+    cursor: pointer;
+    margin-top: 2em;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    border-radius: 5px;
+    border-style: none;
+    background-color: rgb(6, 93, 255);
+    box-shadow: 2px 1px 3px 0px rgba(0, 0, 0, 0.55);
+    width: 8em;
+    height: 2.5em;
+}
+
+
+.form-footer {
+    width: 21em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 6em;
+}
+
+.form-footer label {
+    cursor: pointer;
+    margin-top: 0.7em;
+    font-size: 0.9em;
+    color: white;
+}

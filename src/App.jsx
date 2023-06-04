@@ -43,6 +43,7 @@ import Pagina404 from './pages/pagina404/Pagina404';
 import NovaVenda from './pages/vendas/novaVenda/NovaVenda';
 import ListaVenda from './pages/vendas/ListaVenda';
 import DetalheVenda from './pages/vendas/detalheVenda/DetalheVenda';
+import Login from './pages/login/Login';
 
 
 function App() {
@@ -50,7 +51,8 @@ function App() {
    return (
       <BrowserRouter basename='/pharmacy-system-frontend'>
          <Routes>
-            <Route path='/' element={<MainLayout />} />
+            <Route path='/' element={<Login />} />
+
             <Route path='/funcionarios/' element={<MainLayout children={<ListaFuncionarios />} />} />
             <Route path='/funcionarios/:id' element={<MainLayout children={<DetalheFuncionarios />} />} />
             <Route path='/funcionarios/form/:id' element={<MainLayout children={<FormularioFuncionarios />} />} />
