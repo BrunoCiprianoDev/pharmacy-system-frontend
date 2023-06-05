@@ -1,6 +1,6 @@
 import './App.css'
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import MainLayout from './components/layouts/mainLayout/MainLayout';
 import ListaFuncionarios from './pages/funcionarios/ListaFuncionarios';
@@ -44,56 +44,58 @@ import NovaVenda from './pages/vendas/novaVenda/NovaVenda';
 import ListaVenda from './pages/vendas/ListaVenda';
 import DetalheVenda from './pages/vendas/detalheVenda/DetalheVenda';
 import Login from './pages/login/Login';
-
+import { useContext} from 'react';
+import { AuthContext } from './context/AuthContext';
 
 function App() {
+
+   const {auth} = useContext(AuthContext);
 
    return (
       <BrowserRouter basename='/pharmacy-system-frontend'>
          <Routes>
-            <Route path='/' element={<Login />} />
+            <Route path='/' element={auth ? <Navigate to="/vendas"/>:<Login />} />
+            <Route path='/funcionarios/' element={auth ? <MainLayout children={<ListaFuncionarios />} /> : <Navigate to="/" />} />
+            <Route path='/funcionarios/:id' element={auth? <MainLayout children={<DetalheFuncionarios />} /> : <Navigate to="/"/>} />
+            <Route path='/funcionarios/form/:id' element={auth? <MainLayout children={<FormularioFuncionarios />} /> : <Navigate to="/"/>} />
 
-            <Route path='/funcionarios/' element={<MainLayout children={<ListaFuncionarios />} />} />
-            <Route path='/funcionarios/:id' element={<MainLayout children={<DetalheFuncionarios />} />} />
-            <Route path='/funcionarios/form/:id' element={<MainLayout children={<FormularioFuncionarios />} />} />
+            <Route path='/descontos/' element={auth? <MainLayout children={<ListaDescontos />} /> : <Navigate to="/"/>} />
+            <Route path='/descontos/:id' element={auth? <MainLayout children={<DetalheDescontos />} /> : <Navigate to="/"/>} />
+            <Route path='/descontos/form/:id' element={auth? <MainLayout children={<FormularioDescontos />} /> : <Navigate to="/"/>} />
 
-            <Route path='/descontos/' element={<MainLayout children={<ListaDescontos />} />} />
-            <Route path='/descontos/:id' element={<MainLayout children={<DetalheDescontos />} />} />
-            <Route path='/descontos/form/:id' element={<MainLayout children={<FormularioDescontos />} />} />
+            <Route path='/mercadorias/' element={auth? <MainLayout children={<ListaMercadorias />} /> : <Navigate to="/"/>} />
+            <Route path='/mercadorias/:id' element={auth? <MainLayout children={<DetalheMercadorias />} /> : <Navigate to="/"/>} />
+            <Route path='/mercadorias/form/:id' element={auth? <MainLayout children={<FormularioMercadorias />} /> : <Navigate to="/"/>} />
 
-            <Route path='/mercadorias/' element={<MainLayout children={<ListaMercadorias/>}/>}/>
-            <Route path='/mercadorias/:id' element={<MainLayout children={<DetalheMercadorias/>}/>}/>
-            <Route path='/mercadorias/form/:id' element={<MainLayout children={<FormularioMercadorias/>}/>}/>
+            <Route path='/fornecedores/' element={auth? <MainLayout children={<ListaFornecedores />} /> : <Navigate to="/"/>} />
+            <Route path='/fornecedores/:id' element={auth? <MainLayout children={<DetalheFornecedores />} /> : <Navigate to="/"/>} />
+            <Route path='/fornecedores/form/:id' element={auth? <MainLayout children={<FormularioFornecedores />} /> : <Navigate to="/"/>} />
 
-            <Route path='/fornecedores/' element={<MainLayout children={<ListaFornecedores/>}/>}/>
-            <Route path='/fornecedores/:id' element={<MainLayout children={<DetalheFornecedores/>}/>}/>
-            <Route path='/fornecedores/form/:id' element={<MainLayout children={<FormularioFornecedores/>}/>}/>
+            <Route path='/compras/' element={auth? <MainLayout children={<ListaCompras />} /> : <Navigate to="/"/>} />
+            <Route path='/compras/:id' element={auth? <MainLayout children={<DetalheCompras />} /> : <Navigate to="/"/>} />
+            <Route path='/compras/form/:id' element={auth? <MainLayout children={<FormularioCompras />} /> : <Navigate to="/"/>} />
 
-            <Route path='/compras/' element={<MainLayout children={<ListaCompras/>}/>}/>
-            <Route path='/compras/:id' element={<MainLayout children={<DetalheCompras/>}/>}/>
-            <Route path='/compras/form/:id' element={<MainLayout children={<FormularioCompras/>}/>}/> 
+            <Route path='/lotes/' element={auth? <MainLayout children={<ListaLotes />} /> : <Navigate to="/"/>} />
+            <Route path='/lotes/:id' element={auth? <MainLayout children={<DetalheLotes />} /> : <Navigate to="/"/>} />
+            <Route path='/lotes/form/:id' element={auth? <MainLayout children={<FormularioLotes />} /> : <Navigate to="/"/>} />
 
-            <Route path='/lotes/' element={<MainLayout children={<ListaLotes/>}/>}/>
-            <Route path='/lotes/:id' element={<MainLayout children={<DetalheLotes/>}/>}/>
-            <Route path='/lotes/form/:id' element={<MainLayout children={<FormularioLotes/>}/>}/>
+            <Route path='/perdas/' element={auth? <MainLayout children={<ListaPerdas />} /> : <Navigate to="/"/>} />
+            <Route path='/perdas/:id' element={auth? <MainLayout children={<DetalhePerdas />} /> : <Navigate to="/"/>} />
+            <Route path='/perdas/form/:id' element={auth? <MainLayout children={<FormularioPerdas />} /> : <Navigate to="/"/>} />
 
-            <Route path='/perdas/' element={<MainLayout children={<ListaPerdas/>}/>}/>
-            <Route path='/perdas/:id' element={<MainLayout children={<DetalhePerdas/>}/>}/>
-            <Route path='/perdas/form/:id' element={<MainLayout children={<FormularioPerdas/>}/>}/>
+            <Route path='/devolucoes/' element={auth? <MainLayout children={<ListaDevolucoes />} /> : <Navigate to="/"/>} />
+            <Route path='/devolucoes/:id' element={auth? <MainLayout children={<DetalheDevolucoes />} /> : <Navigate to="/"/>} />
+            <Route path='/devolucoes/form/:id' element={auth? <MainLayout children={<FormularioDevolucoes />} /> : <Navigate to="/"/>} />
 
-            <Route path='/devolucoes/' element={<MainLayout children={<ListaDevolucoes/>}/>}/>
-            <Route path='/devolucoes/:id' element={<MainLayout children={<DetalheDevolucoes/>}/>}/>
-            <Route path='/devolucoes/form/:id' element={<MainLayout children={<FormularioDevolucoes/>}/>}/>
+            <Route path='/clientes/' element={auth? <MainLayout children={<ListaClientes />} /> : <Navigate to="/"/>} />
+            <Route path='/clientes/:id' element={auth? <MainLayout children={<DetalheClientes />} /> : <Navigate to="/"/>} />
+            <Route path='/clientes/form/:id' element={auth? <MainLayout children={<FormularioClientes />} /> : <Navigate to="/"/>} />
 
-            <Route path='/clientes/' element={<MainLayout children={<ListaClientes/>}/>}/>
-            <Route path='/clientes/:id' element={<MainLayout children={<DetalheClientes/>}/>}/>
-            <Route path='/clientes/form/:id' element={<MainLayout children={<FormularioClientes/>}/>}/>
+            <Route path='/novaVenda/' element={auth? <MainLayout children={<NovaVenda />} /> : <Navigate to="/"/>} />
+            <Route path='/vendas/' element={auth? <MainLayout children={<ListaVenda />} /> : <Navigate to="/"/>} />
+            <Route path='/vendas/:id' element={auth? <MainLayout children={<DetalheVenda />} /> : <Navigate to="/"/>} />
 
-            <Route path='/novaVenda/' element={<MainLayout children={<NovaVenda/>}/>}/>
-            <Route path='/vendas/' element={<MainLayout children={<ListaVenda/>}/>}/>
-            <Route path='/vendas/:id' element={<MainLayout children={<DetalheVenda/>}/>}/>
-
-            <Route path='*' element={<Pagina404/>}/>
+            <Route path='*' element={<Pagina404 />} />
          </Routes>
       </BrowserRouter>
    )
