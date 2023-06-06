@@ -17,8 +17,6 @@ export const useAuth = () => {
         setErrorMessage("");
         console.log(usuario);
 
-        //Get token jwt
-
         try {
             const response = await fetch(`${urlServer}/usuarios/auth`, {
                 method: 'POST',
@@ -43,13 +41,14 @@ export const useAuth = () => {
             }))
             setAuth(true);
 
-            navigate('/funcionarios');
+            navigate('/vendas');
 
         } catch (error) {
             setErrorMessage(error.message);
         }
         setIsLoading(false);
     };
+
     return {
         login,
         isLoading,

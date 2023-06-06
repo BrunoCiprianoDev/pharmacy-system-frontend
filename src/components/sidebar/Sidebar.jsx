@@ -30,6 +30,9 @@ const Sidebar = () => {
                   </NavLink> : ''
                ))
             }
+            <button className={styles['NavContainer']}>
+               Sair
+            </button>
          </nav>
       </div>
    )

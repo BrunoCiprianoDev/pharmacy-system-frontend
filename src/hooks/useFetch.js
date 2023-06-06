@@ -45,7 +45,6 @@ export const useFetch = (url, filter) => {
     try {
       setLoading(true);
       const token = JSON.parse(sessionStorage.getItem("credencial")).token;
-      console.log(token)
       const res = await fetch(`${url}${filter}`, {
         headers: {
           Authorization: `Bearer ${token}`,

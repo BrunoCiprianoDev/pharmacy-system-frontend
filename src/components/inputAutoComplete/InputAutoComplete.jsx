@@ -10,8 +10,8 @@ const InputAutoComplete = ({ attribute, url, setValue, attributeVisible, hookFor
   const [visibilityAutoComplete, setVisibiliyAutoComplete] = useState(true)
 
   const handleInsert = (item) => {
-    setInputSearch(item[attributeVisible])
-    setVisibiliyAutoComplete(false)
+    setInputSearch(item[attributeVisible]);
+    setVisibiliyAutoComplete(false);
     hookForm ? setValue(attribute, item['id']) : setValue(item.id)
   }
   const handleOnChange = (event) => {
