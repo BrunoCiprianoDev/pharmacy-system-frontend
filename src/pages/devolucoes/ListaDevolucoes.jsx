@@ -12,8 +12,7 @@ const ListaDevolucoes = () => {
       urlFetch={`${urlServer}/returns`}
       parametros={parametrosDevolucoes}
       sessao={"devolucoes"}
-      manualUrl={true}
-      opcaoEditar={true}
+      opcaoEditar={false}
     />
   )
 }

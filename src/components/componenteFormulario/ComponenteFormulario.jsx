@@ -21,7 +21,7 @@ const ComponenteFormulario = ({
 
   const navigate = useNavigate();
   const { data, httpConfig, loading, error, responseMessage } = useFetch(`${urlFetch}`, idFetch !== 'adicionar' ? `${idFetch}` : ``);
-  const { register, handleSubmit, reset, setValue } = useForm();
+  const { register, handleSubmit, setValue } = useForm();
 
   useEffect(() => {
     if (idFetch && data) {
@@ -67,6 +67,7 @@ const ComponenteFormulario = ({
                       return <input name={parametro.atributo}
                         {...register(parametro.atributo)}
                         type={parametro.tipo}
+                        placeholder={parametro.placeholder && parametro.placeholder}
                       />;
 
                     case "date":
@@ -79,24 +80,28 @@ const ComponenteFormulario = ({
                       return <input name={parametro.atributo}
                         {...register(parametro.atributo)}
                         type={parametro.tipo} step='.01' required
+                        placeholder={parametro.placeholder && parametro.placeholder}
                       />;
 
                     case "textarea":
                       return <textarea name={parametro.atributo}
                         {...register(parametro.atributo)}
                         type={parametro.tipo} rows='3' required
+                        placeholder={parametro.placeholder && parametro.placeholder}
                       />;
 
                     case "password":
                       return <input name={parametro.atributo}
                         {...register(parametro.atributo)}
                         type={parametro.tipo} required
+                        placeholder={parametro.placeholder && parametro.placeholder}
                       />;
 
                     case "email":
                       return <input name={parametro.atributo}
                         {...register(parametro.atributo)}
                         type={parametro.tipo} required
+                        placeholder={parametro.placeholder && parametro.placeholder}
                       />;
 
                     case "select":

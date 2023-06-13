@@ -54,7 +54,7 @@ function App() {
    return (
       <BrowserRouter basename='/pharmacy-system-frontend'>
          <Routes>
-            <Route path='/' element={auth ? <Navigate to="/vendas"/>:<Login />} />
+            <Route path='/' element={<Login />} />
             <Route path='/funcionarios/' element={auth ? <MainLayout children={<ListaFuncionarios />} /> : <Navigate to="/" />} />
             <Route path='/funcionarios/:id' element={auth? <MainLayout children={<DetalheFuncionarios />} /> : <Navigate to="/"/>} />
             <Route path='/funcionarios/form/:id' element={auth? <MainLayout children={<FormularioFuncionarios />} /> : <Navigate to="/"/>} />

@@ -39,7 +39,6 @@ const Login = () => {
                     </label>
                     <button className={styles['button-container']}>Entrar</button>
                 </form>
-                <label className={styles['link-register']}>Ainda não possuo cadastro</label>
             </div>
         </div>
     )
