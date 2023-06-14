@@ -57,6 +57,25 @@
     height: 2em;
 }
 
+.ButtonExit {
+    background-color: transparent;
+    border-style: none;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 4px;
+    height: 4em;
+}
+
+.ButtonExit:hover {
+    background-color: rgba(0, 42, 82, 0.897);
+}
+
+.ButtonExit img {
+    width: 2em;
+    height: 2em;
+}
+
 @media screen and (max-width: 800px) {
     .MainContainer:hover{
         z-index: 100;

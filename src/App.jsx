@@ -46,6 +46,7 @@ import DetalheVenda from './pages/vendas/detalheVenda/DetalheVenda';
 import Login from './pages/login/Login';
 import { useContext} from 'react';
 import { AuthContext } from './context/AuthContext';
+import FormularioUsuario from './pages/usuarios/FormularioUsuario';
 
 function App() {
 
@@ -55,6 +56,7 @@ function App() {
       <BrowserRouter basename='/pharmacy-system-frontend'>
          <Routes>
             <Route path='/' element={<Login />} />
+            <Route path="/usuarios" element={auth ? <MainLayout children={<FormularioUsuario/>} />:  <Navigate to="/" />}/>
             <Route path='/funcionarios/' element={auth ? <MainLayout children={<ListaFuncionarios />} /> : <Navigate to="/" />} />
             <Route path='/funcionarios/:id' element={auth? <MainLayout children={<DetalheFuncionarios />} /> : <Navigate to="/"/>} />
             <Route path='/funcionarios/form/:id' element={auth? <MainLayout children={<FormularioFuncionarios />} /> : <Navigate to="/"/>} />

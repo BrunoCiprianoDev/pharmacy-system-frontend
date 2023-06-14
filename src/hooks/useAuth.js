@@ -49,8 +49,14 @@ export const useAuth = () => {
         setIsLoading(false);
     };
 
+    const logout = () => {
+        sessionStorage.removeItem("credencial");
+        navigate('/');
+    }
+
     return {
         login,
+        logout,
         isLoading,
         errorMessage
     }

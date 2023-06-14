@@ -1,12 +1,15 @@
 import { React, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
+import iconSair from '../../assets/icon-sair.png'
 import styles from './Sidebar.module.css'
 import { parametrosSideBar } from './pr_sidebar'
+import { useAuth } from '../../hooks/useAuth'
 
 const Sidebar = () => {
 
    const [credencial] = useState(JSON.parse(sessionStorage.getItem("credencial")));
+   const {logout} = useAuth();
    
    const checarPermissao = (permissao) => {
       console.log("tste:", credencial.rule);
@@ -30,8 +33,8 @@ const Sidebar = () => {
                   </NavLink> : ''
                ))
             }
-            <button className={styles['NavContainer']}>
-               Sair
+            <button className={styles['ButtonExit']} onClick={()=> logout()}>
+               <img src={iconSair} alt="sair" />
             </button>
          </nav>
       </div>

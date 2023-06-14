@@ -1,4 +1,4 @@
-import iconeHome from '../../assets/icon-home.png'
+import iconeUsuario from '../../assets/icon-user.png'
 import iconeFuncionario from '../../assets/icon-funcionario.png'
 import iconeVendas from '../../assets/icon-vendas.png'
 import iconeMercadorias from '../../assets/icon-mercadorias.png'
@@ -8,11 +8,10 @@ import iconeCompras from '../../assets/icon-compras.png'
 import iconeEstoque from '../../assets/icon-estoque.png'
 import iconeDevolucao from '../../assets/icon-devolucao.png'
 import iconeClientes from '../../assets/icon-clientes.png'
-import iconeRelatorios from '../../assets/icon-relatorio.png'
 import iconeDesconto from '../../assets/icon-desconto.png'
 
 export const parametrosSideBar = [
-  // { id: 1, name: 'Painel principal', to: '/', value: 'DASHBOARD', icon: iconeHome },
+  { id: 1, name: 'Usuarios', to: '/usuarios', value: 'USUARIOS', icon: iconeUsuario, permissao: 'manager' },
   { id: 2, name: 'Funcionários', to: "/funcionarios/", value: 'FUNCIONARIOS', icon: iconeFuncionario, permissao: 'manager' },
   { id: 3, name: 'Descontos', to: '/descontos/', value: 'DESCONTOS', icon: iconeDesconto, permissao: 'manager' },
   { id: 4, name: 'Mercadorias', to: '/mercadorias/', value: 'MERCADORIAS', icon: iconeMercadorias, permissao: 'manager' },
