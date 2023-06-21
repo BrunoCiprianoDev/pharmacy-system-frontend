@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './BotoesLista.module.css'
 
-import iconeDeletar from '../../assets/icon-deletar.png'
+import iconeDeletar from "../../assets/icon-deletar.png"
 import iconeDetalhe from '../../assets/icon-detalhe.png'
 
 const BotoesLista = ({handleEdit, handleRemove, id}) => {

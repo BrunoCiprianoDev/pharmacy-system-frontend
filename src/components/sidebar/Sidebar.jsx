@@ -12,7 +12,6 @@ const Sidebar = () => {
    const {logout} = useAuth();
    
    const checarPermissao = (permissao) => {
-      console.log("tste:", credencial.rule);
       if(permissao === 'manager'){
          return credencial.rule === 'manager' ? true : null;
       }
