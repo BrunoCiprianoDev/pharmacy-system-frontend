@@ -2,7 +2,7 @@ import { urlServer } from "../../serverConfig";
 
 export const parametrosMercadorias = [
   { id: 1, atributo: 'name', rotulo: 'Nome', tipo: 'text',  placeholder: 'Nome da mercadoria' },
-  { id: 2, atributo: 'code', rotulo: 'Código', tipo: 'text',  placeholder: '999999-999999-9' },
+  { id: 2, atributo: 'code', rotulo: 'Código', tipo: 'text',  placeholder: '999999-999999-9', tipo: 'textMask', mask: "999999-999999-9"  },
   {
     id: 3, atributo: 'department', rotulo: 'Departamento', tipo: 'select',
     opcoes: [
@@ -37,7 +37,7 @@ export const parametrosMercadorias = [
     ]
   },
   {id: 8, atributo: 'storageTemperature', rotulo: 'Temperatura de armazenamento', tipo: 'number'},
-  { id: 9, atributo: 'rms', rotulo: 'Registro MS', tipo: 'text', placeholder: '9999999999999(13 digitos)' },
+  { id: 9, atributo: 'rms', rotulo: 'Registro MS', tipo: 'text', placeholder: '9999999999999(13 digitos)',tipo: 'textMask', mask: "9999999999999" },
   { id: 10, atributo: 'minimumStock', rotulo: 'Estoque minimo', tipo: 'number', placeholder: '100' },
   { id: 11, atributo: 'maximumStock', rotulo: 'Estoque máximo', tipo: 'number', placeholder: '350' },
   { id: 12, atributo: 'fullPrice', rotulo: 'Preço', tipo: 'number', placeholder: 'R$11.99', before: "R$" },

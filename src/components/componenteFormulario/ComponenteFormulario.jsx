@@ -44,13 +44,13 @@ const ComponenteFormulario = ({ parametros, idFetch, urlFetch, urlVoltar }) => {
 
   const applyMask = (fieldName, value, mask) => {
     // Remove caracteres não numéricos do valor atual
-    const currentValue = value.replace(/\D/g, '');
+    const currentValue = value.replace(/\D/g, "");
   
     // Inicializa os arrays de valor e máscara
-    const valueArray = currentValue.split('');
-    const maskArray = mask.split('');
+    const valueArray = currentValue.split("");
+    const maskArray = mask.split("");
   
-    let maskedValue = '';
+    let maskedValue = "";
     let j = 0;
   
     // Aplica a máscara ao valor
@@ -59,7 +59,7 @@ const ComponenteFormulario = ({ parametros, idFetch, urlFetch, urlVoltar }) => {
         break;
       }
   
-      if (maskArray[i] === '9') {
+      if (maskArray[i] === "9") {
         maskedValue += valueArray[j];
         j++;
       } else {
@@ -67,8 +67,10 @@ const ComponenteFormulario = ({ parametros, idFetch, urlFetch, urlVoltar }) => {
       }
     }
   
-    // Atualiza o valor do campo com a máscara aplicada
-    setValue(fieldName, maskedValue);
+    // Atualiza o valor do campo com a máscara aplicada apenas se houver um valor válido
+    if (maskedValue) {
+      setValue(fieldName, maskedValue);
+    }
   };
 
   return (
