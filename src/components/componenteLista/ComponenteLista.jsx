@@ -55,7 +55,9 @@ const ComponenteLista = ({sessao, titulo, urlFetch, parametros, opcaoEditar, man
                   <td
                     key={parametro.id}
                     className={styles.ElementData}>
-                    {item[parametro.atributo]}
+                    {`${parametro.before !== undefined ? parametro.before : ""}
+                    ${item[parametro.atributo]}
+                    ${parametro.after !== undefined ? parametro.after : ""}`}
                   </td>
                 ))}
                 {opcaoEditar === true && <BotoesLista

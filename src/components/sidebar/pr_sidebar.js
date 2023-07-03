@@ -20,7 +20,7 @@ export const parametrosSideBar = [
   { id: 7, name: 'Estoque', to: '/lotes/', value: 'ESTOQUE', icon: iconeEstoque, permissao: 'manager' },
   { id: 8, name: 'Perdas', to: '/perdas/', value: 'PERDAS', icon: iconePerdas, permissao: 'employee' },
   { id: 9, name: 'Vendas', to: '/novaVenda/', value: 'VENDAS', icon: iconeVendas, permissao: 'employee' },
-  { id: 10, name: 'Devoluções', to: '/devolucoes/', value: 'DEVOLUCOES', icon: iconeDevolucao, permissao: 'employee' },
+  // { id: 10, name: 'Devoluções', to: '/devolucoes/', value: 'DEVOLUCOES', icon: iconeDevolucao, permissao: 'employee' },
   { id: 11, name: 'Clientes', to: '/clientes/', value: 'CLIENTES', icon: iconeClientes, permissao: 'employee' },
   // { id: 12, name: 'Relatórios', to: '/relatorios/', value: 'RELATORIOS', icon: iconeRelatorios }
 ]

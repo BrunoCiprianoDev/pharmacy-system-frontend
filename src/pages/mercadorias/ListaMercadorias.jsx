@@ -10,7 +10,7 @@ const ListaMercadorias = () => {
       <ComponenteLista
          titulo={'Mercadorias'}
          urlFetch={`${urlServer}/merchandises`}
-         parametros={parametrosMercadorias.slice(0, 2).concat(parametrosMercadorias.slice(13, 15))}
+         parametros={parametrosMercadorias.slice(0, 2).concat(parametrosMercadorias.slice(11, 12))}
          sessao={'mercadorias'}
          opcaoEditar={true}
       />

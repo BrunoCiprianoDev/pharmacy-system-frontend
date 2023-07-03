@@ -33,7 +33,12 @@ const ComponenteDetalhe = ({
         {parametros && parametros.map((parametro) => (
           <div key={parametro.id}>
             <label>{parametro.rotulo}</label>
-            <p>{data && data[parametro.atributo]}</p>
+            <p>{data && `
+            ${parametro.before !== undefined ? parametro.before : ""}
+            ${data[parametro.atributo]}
+            ${parametro.after !== undefined ? parametro.after : ""}
+            `}
+            </p>
           </div>
         ))}
       </div>
