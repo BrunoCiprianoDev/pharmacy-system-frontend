@@ -20,7 +20,7 @@ const Login = () => {
 
     return (
         <div className={styles['home-container']}>
-            <h1>Sistema para farmacias</h1>
+            <h1>Sistema para farmácias</h1>
             <div className={styles['home-login-container']}>
                 <h3>Insira o e-mail e senha</h3>
                 <form onSubmit={(e) => logar(e)} className={styles['form-login-container']}>
