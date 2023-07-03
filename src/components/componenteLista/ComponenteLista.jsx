@@ -56,7 +56,7 @@ const ComponenteLista = ({sessao, titulo, urlFetch, parametros, opcaoEditar, man
                     key={parametro.id}
                     className={styles.ElementData}>
                     {`${parametro.before !== undefined ? parametro.before : ""}
-                    ${item[parametro.atributo]}
+                    ${!parametro.fixed ? item[parametro.atributo] : item[parametro.atributo].toFixed(2)}
                     ${parametro.after !== undefined ? parametro.after : ""}`}
                   </td>
                 ))}

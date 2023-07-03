@@ -31,7 +31,7 @@ const DetalheVenda = () => {
                 <label>{venda.rotulo}</label>
                 <p>
                   {data &&`${venda.before !== undefined ? venda.before : ""}
-                  ${data[venda.atributo]}
+                  ${!venda.fixed ? data[venda.atributo] : data[venda.atributo].toFixed(2)}
                   ${venda.after !== undefined ? venda.after : ""}`}
                 </p>
               </div>

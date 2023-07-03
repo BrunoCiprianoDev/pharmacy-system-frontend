@@ -42,6 +42,35 @@ const ComponenteFormulario = ({ parametros, idFetch, urlFetch, urlVoltar }) => {
     navigate(urlVoltar);
   };
 
+  const applyMask = (fieldName, value, mask) => {
+    // Remove caracteres não numéricos do valor atual
+    const currentValue = value.replace(/\D/g, '');
+  
+    // Inicializa os arrays de valor e máscara
+    const valueArray = currentValue.split('');
+    const maskArray = mask.split('');
+  
+    let maskedValue = '';
+    let j = 0;
+  
+    // Aplica a máscara ao valor
+    for (let i = 0; i < maskArray.length; i++) {
+      if (j >= valueArray.length) {
+        break;
+      }
+  
+      if (maskArray[i] === '9') {
+        maskedValue += valueArray[j];
+        j++;
+      } else {
+        maskedValue += maskArray[i];
+      }
+    }
+  
+    // Atualiza o valor do campo com a máscara aplicada
+    setValue(fieldName, maskedValue);
+  };
+
   return (
     <div className={styles.MainContainer}>
       {loading && <Loading />}
@@ -72,6 +101,13 @@ const ComponenteFormulario = ({ parametros, idFetch, urlFetch, urlVoltar }) => {
                           name={parametro.atributo}
                           {...register(parametro.atributo)}
                           type={parametro.tipo}
+                          onChange={(e) =>
+                            applyMask(
+                              parametro.atributo,
+                              e.target.value,
+                              parametro.mask
+                            )
+                          }
                           placeholder={
                             parametro.placeholder && parametro.placeholder
                           }
